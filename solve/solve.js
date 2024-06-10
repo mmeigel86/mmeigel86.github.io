@@ -111,10 +111,7 @@ export function solveDemo() {
         /* making sure centroid/circles are drawn or not drawn */
         callCheckboxListeners();
     }
-
-
 }
-
 
 export function solvePointsDemo() {
     const param = { A: {}, B: {}, C: {} };
@@ -180,9 +177,5 @@ export function solvePointsDemo() {
             text.textContent = labels[i];
             svg.append(text);
         }
-
-
     }
-
-
 }
