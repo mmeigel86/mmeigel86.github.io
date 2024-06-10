@@ -88,7 +88,7 @@ button {
     overflow: auto;
 }
 
-@media only screen and (width <=500px) {
+@media only screen and (max-width <=500px) {
     #grid {
         grid-template-columns: min-content min-content;
     }
@@ -99,7 +99,7 @@ button {
     }
 }
 
-@media only screen and (width >=500px) {
+@media only screen and (max-width >=500px) {
     #grid {
         grid-template-columns: min-content min-content 1fr;
     }
