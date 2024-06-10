@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./solve.css" rel="stylesheet"/>
+</head>
+
+<body>
+    <h1>
+        solve({ a, b, c, alpha, beta, gamma, mode = "deg" })
+    </h1>
+    <div id="svg-div">
+        <p id="svg-text">SVG:</p>
+        <svg id="svg-output" width="99%" height="200px">
+        </svg>
+        <form id="svg-control">
+            <input type="checkbox" id="check-incircle"><label for="check-incircle">Incircle</label>
+            <input type="checkbox" id="check-circumcircle"><label for="check-circumcircle">Circumcircle</label>
+        </form>
+    </div>
+    <hr />
+
+    <div id="grid">
+        <form id="input-form">
+            <fieldset>
+                <legend>Input:</legend>
+                <label for="a">a </label><input type="text" id="a">
+                <label for="b">b </label><input type="text" id="b">
+                <label for="c">c </label><input type="text" id="c">
+                <label for="alpha">alpha </label><input type="text" id="alpha">
+                <label for="beta">beta </label><input type="text" id="beta">
+                <label for="gamma">gamma </label><input type="text" id="gamma">
+                <label for="mode">mode </label><input type="text" id="mode" value="deg">
+            </fieldset>
+            <button type="button" onclick="solveDemo()">Calculate</button>
+        </form>
+        <pre id="output">Return Value</pre>
+
+    </div>
+    <script type="module">
+        import { solveDemo, solvePointsDemo, createCheckboxListener } from "./solve.js";
+        window.solveDemo = solveDemo;
+        document.querySelector("#check-incircle").addEventListener("click", createCheckboxListener("check-incircle", "incircle"));
+        document.querySelector("#check-circumcircle").addEventListener("click", createCheckboxListener("check-circumcircle", "circumcircle"));
+    </script>
+
+</body>
+
+</html>

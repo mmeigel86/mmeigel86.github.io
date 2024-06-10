@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="./solve.css" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>
+        solvePoints(A, B, C, mode = "deg" )
+    </h1>
+    <div id="svg-div">
+        <p id="svg-text">SVG:</p>
+        <svg id="svg-output" width="99%" height="200px">
+        </svg>
+        <form id="svg-control">
+            <input type="checkbox" id="check-centroid"><label for="check-centroid">Centroid</label>
+            <input type="checkbox" id="check-incircle"><label for="check-incircle">Incircle</label>
+            <input type="checkbox" id="check-circumcircle"><label for="check-circumcircle">Circumcircle</label>
+        </form>
+    </div>
+    <hr />
+
+    <div id="grid">
+        <form id="input-form">
+            <fieldset>
+                <legend>Input:</legend>
+                <label for="ax">A.x </label><input type="text" class="input-solvePoint" id="ax">
+                <label for="ay">A.y </label><input type="text" class="input-solvePoint" id="ay">
+                <label for="bx">B.x </label><input type="text" class="input-solvePoint" id="bx">
+                <label for="by">B.y </label><input type="text" class="input-solvePoint" id="by">
+                <label for="cx">C.x </label><input type="text" class="input-solvePoint" id="cx">
+                <label for="cy">C.y </label><input type="text" class="input-solvePoint" id="cy">
+                <label for="mode">mode </label><input type="text" class="input-solvePoint" id="mode" value="deg">
+            </fieldset>
+            <button type="button" onclick="solvePointsDemo()">Calculate</button>
+        </form>
+        <pre id="output">Return Value</pre>
+
+    </div>
+    <script type="module">
+        import { solvePointsDemo, createCheckboxListener } from "./solve.js";
+        window.solvePointsDemo = solvePointsDemo;
+        document.querySelector("#check-centroid").addEventListener("click", createCheckboxListener("check-centroid", "centroid"));
+        document.querySelector("#check-incircle").addEventListener("click", createCheckboxListener("check-incircle", "incircle"));
+        document.querySelector("#check-circumcircle").addEventListener("click", createCheckboxListener("check-circumcircle", "circumcircle"));
+    </script>
+
+</body>
+
+</html>
