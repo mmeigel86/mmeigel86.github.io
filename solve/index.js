@@ -22,7 +22,8 @@ export function roundToPrecision(value, precision) {
         return value;
     }
     precision = Math.floor(precision);//digits must be integer
-    const mul = 10 ** precision; return (Math.round(value * mul) / mul);
+    const mul = 10 ** precision;
+    return (Math.round(value * mul) / mul);
 }
 
 /**
@@ -434,7 +435,7 @@ export function distance(p1, p2) {
  * @returns {boolean}
  */
 function checkCoordinate(p) {
-    if (typeof p !== "object") {
+    if (typeof p !== "object" || p === null || p == undefined) {
         return false;
     }
     if (Array.isArray(p) && p.length >= 2) {
@@ -503,7 +504,7 @@ export function solvePoints(A, B, C, mode = "deg") {
     const valArray = [A, B, C];
     for (let i = 0; i < 3; i++) {
         if (!checkCoordinate(valArray[i])) {
-            result.error = `Illegal Parameter: ${nameArray[i]}:${JSON.stringify(valArray[i]).replaceAll("\"", "'")} - Must be [x,y], {x,y} or {X,Y}.`;
+            result.error = `Illegal Parameter: ${nameArray[i]}: ${String(JSON.stringify(valArray[i])).replaceAll("\"", "'")} - Must be [x,y], {x,y} or {X,Y}.`;
             return result;
         }
     } for (let i = 0; i < 3; i++) {
@@ -586,6 +587,3 @@ export function solvePoints(A, B, C, mode = "deg") {
     result.solutions = [solution];
     return result;
 }
-
-const solvedTriangle =  solve({a:1, b:1.5, gamma:30, mode :"deg"});
-console.log(solvedTriangle)
